@@ -32,12 +32,9 @@ test('rejects future dates and keeps the form content', async ({ page }) => {
   await page.getByLabel(/标题/).fill('未来的第一次')
   const tomorrow = new Date(`${todayLocal()}T12:00:00`)
   tomorrow.setDate(tomorrow.getDate() + 1)
-  await page.getByLabel(/日期/).evaluate((input, value) => {
-    const element = input as HTMLInputElement
-    element.removeAttribute('max')
-    element.value = String(value)
-    element.dispatchEvent(new Event('change', { bubbles: true }))
-  }, tomorrow.toISOString().slice(0, 10))
+  const dateInput = page.getByLabel(/日期/)
+  await dateInput.evaluate((input) => input.removeAttribute('max'))
+  await dateInput.fill(tomorrow.toISOString().slice(0, 10))
   await page.getByRole('button', { name: '保存第一次' }).click()
   await expect(page.getByRole('alert')).toContainText('未来的事情')
   await expect(page.getByLabel(/标题/)).toHaveValue('未来的第一次')
