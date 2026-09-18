@@ -1,0 +1,18 @@
+:root {
+  --paper: #f1eadc;
+  --paper-deep: #e5dac6;
+  --paper-light: #fbf7ef;
+  --ink: #201f1a;
+  --ink-soft: #605d54;
+  --rule: rgba(32, 31, 26, 0.24);
+  --rust: #a4472f;
+  --sage: #66715b;
+  --blue: #536977;
+  --gold: #b58a3a;
+  --shadow-card: 0 18px 46px rgba(58, 43, 22, 0.13);
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --content: 1160px;
+  --touch: 44px;
+}
