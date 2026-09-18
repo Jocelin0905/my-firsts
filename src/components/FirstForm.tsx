@@ -43,7 +43,7 @@ export function FirstForm({ initial, submitLabel, busy, onSubmit }: FirstFormPro
   }
 
   return (
-    <form className="first-form" onSubmit={submit}>
+    <form className="first-form" noValidate onSubmit={submit}>
       <div className="field field--wide">
         <label htmlFor="first-title">标题 <span>必填</span></label>
         <input id="first-title" value={title} maxLength={60} placeholder="第一次……" onChange={(event) => setTitle(event.target.value)} />

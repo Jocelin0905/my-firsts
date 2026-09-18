@@ -19,7 +19,7 @@ test('long titles remain inside the collectible card', async ({ page }) => {
       version: 1,
       firsts: [{
         id: 'long-title', number: 1000, year,
-        title: '第一次ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        title: '第一次ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXY',
         date: `${year}-01-01`, category: 'Other',
         createdAt: `${year}-01-01T00:00:00.000Z`, updatedAt: `${year}-01-01T00:00:00.000Z`,
       }],

@@ -31,7 +31,8 @@ describe('FirstForm image replacement', () => {
       revokeObjectURL: vi.fn(),
     })
 
-    render(<FirstForm initial={existing} submitLabel="保存修改" busy={false} onSubmit={onSubmit} />)
+    const { container } = render(<FirstForm initial={existing} submitLabel="保存修改" busy={false} onSubmit={onSubmit} />)
+    expect(container.querySelector('form')).toHaveAttribute('novalidate')
     await user.upload(screen.getByLabelText(/照片/), new File(['image'], 'first.png', { type: 'image/png' }))
     await user.click(screen.getByRole('button', { name: '移除新照片' }))
     await user.click(screen.getByRole('button', { name: '保存修改' }))
