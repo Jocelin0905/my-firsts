@@ -4,6 +4,9 @@ A personal collection of the meaningful firsts that made a year different.
 
 My Firsts is a warm, mobile-first web app for collecting the moments that felt like a “first” in a given year. It is intentionally smaller than a journal: add a title, a date, an optional memory, and one photo, then return later to see how those moments shaped the year.
 
+- **Live Demo:** [my-firsts-mu.vercel.app](https://my-firsts-mu.vercel.app/)
+- **GitHub:** [Jocelin0905/my-firsts](https://github.com/Jocelin0905/my-firsts)
+
 ## Core features
 
 - Create, view, edit, and delete Firsts with permanent per-year `FIRST #001` numbering
@@ -14,7 +17,7 @@ My Firsts is a warm, mobile-first web app for collecting the moments that felt l
 - Recover safely from malformed browser data without losing readable records
 - Use every route directly on Vercel through the included SPA rewrite
 
-## Product decisions
+## Product decisions / build notes
 
 - Text and product state live in `localStorage`; image blobs live in IndexedDB.
 - Number counters never decrease, so deleting a record never reuses its number.
@@ -22,6 +25,14 @@ My Firsts is a warm, mobile-first web app for collecting the moments that felt l
 - A standard backup is all-or-nothing: if a referenced photo is missing, export stops and identifies the affected record.
 - Dates are stored as local calendar dates and future events are rejected.
 - The app has no account, backend, cloud sync, social layer, or analytics dashboard.
+
+## What I learned
+
+- How to model CRUD data so display order, event dates, and permanent collection numbers remain independent.
+- How to split browser persistence between `localStorage` metadata and IndexedDB image blobs.
+- How to compress images, preserve transparency during format fallback, and serve thumbnails on a media-heavy wall.
+- How to design an all-or-nothing backup restore flow that validates everything before replacing local data.
+- How to test a client-side application across unit, integration, responsive, routing, Chromium, and WebKit layers.
 
 ## Tech stack
 
@@ -57,4 +68,4 @@ All records stay in the current browser. Clearing browser data, using private br
 
 ## Status
 
-V1 implementation is complete locally. Live Demo and GitHub links will be added after publication.
+V1 is live. The production deployment tracks the `main` branch on Vercel and includes SPA rewrites for direct route access and refreshes.
